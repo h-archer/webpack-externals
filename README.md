@@ -1,12 +1,12 @@
-# ithar-holding-website
+## Webpack  externals are resolving to undefined
 
-> This repo demonstrates the issues when trying to set up two js libraries as externals within a (typ[escript + webpack ) project.
+> This repo demonstrates the issues when trying to set up two js libraries as externals within a (typescript + webpack ) project.
 
-The two libraries, jquery and fabric should not be bundled in the output file since they will be the responsability o9f the consumer to provide them (eg. with a browser script tag).
+The two libraries, jquery and fabric should not be bundled in the output file since they will be the responsability of the consumer to provide them (eg. through a browser script tag).
 
 An attempt has been made to configure them as externals so that they are not bundled. Here's what has been done in this repo:
 
-- Added as externals within the webpack.config.js file:
+1. Added as externals within the webpack.config.js file:
 ```
 ...
   externals: {
@@ -16,25 +16,25 @@ An attempt has been made to configure them as externals so that they are not bun
 ...
 ```
 
-- Installed the decleration files for both libraries:
+2. Installed the decleration files for both libraries:
 ``` bash
 npm install @types/jquery -D
 npm install @types/fabric -D
 ```
 
-- Added the libraries in the html file within script tags
+3. Added the libraries in the public folder and the html file within script tags (since they must not be part of the app bundle)
 ```
   <script src="js/lib/jquery.min.js"></script>
   <script src="js/lib/fabric.min.js"></script>
 ```
 
-- Created a class App.ts. Imported and implemented instances of these two libraries. Imported like so:
+4. Created a class App.ts. Imported and implemented instances of these two libraries. Imported like so:
 ```
 import { fabric } from "fabric";
 import $ from 'jquery';
 ```
 
-You can view and run the files to confirm that both libraries resolve to undefined within App.ts
+You can view and run the files to confirm that both libraries resolve to undefined within the class file, App.ts
 
 ## Build Setup
 
@@ -42,13 +42,13 @@ You can view and run the files to confirm that both libraries resolve to undefin
 # install dependencies
 $ npm install
 
-# webpack serve dev with hot reload
+# webpack dev with hot reload
 $ npm run dev-server
 
-# build dev
+# webpack dev
 $ npm run dev
 
-# build for production
+# webpack build for production
 $ npm run build
 ```
 
