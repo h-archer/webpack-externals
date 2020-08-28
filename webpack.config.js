@@ -35,7 +35,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   externals: {
-    jquery: 'JQuery',
+    jquery: 'jQuery',
     fabric: 'fabric',
   },
 };
