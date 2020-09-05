@@ -11,7 +11,6 @@ export default class App {
       
       $(`#${selector}`).replaceWith(`<canvas id="${selector}" height=${canvasHeight} width=${canvasWidth}> </canvas>`);
 
-      // TypeError: Cannot read property 'Canvas' of undefined
       this.canvas = new fabric.Canvas(`${selector}`, { selection: false });
 
     }
