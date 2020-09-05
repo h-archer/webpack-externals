@@ -1,6 +1,6 @@
-﻿// import { fabric } from "fabric";
-import $ from 'jquery';
+﻿import $ from 'jquery';
 
+// import { fabric } from "fabric";
 const fabric = require('fabric'); 
 
 export default class App {
